@@ -8,15 +8,20 @@ export default function App() {
   const [courseGoals, setCourseGoals] = useState([]);
   const [modalIsVisible, setModalIsVisible] = useState(false);
 
-  function startAddGoalHandler() {
+  const startAddGoalHandler = () => {
     setModalIsVisible(true);
-  }
+  };
+
+  const endAddGoalHandler = () => {
+    setModalIsVisible(false);
+  };
 
   const addGoalHandler = (enteredGoalText) => {
     setCourseGoals((currentCourseGoals) => [
       ...currentCourseGoals,
       { text: enteredGoalText, id: Math.random().toString() },
     ]);
+    setModalIsVisible(false);
   };
 
   const deleteGoalHandler = (id) => {
@@ -57,6 +62,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 40,
     paddingTop: 15,
     paddingHorizontal: 16,
   },
