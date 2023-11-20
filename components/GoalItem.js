@@ -19,7 +19,7 @@ export default GoalItem;
 const styles = StyleSheet.create({
   goalsItem: {
     marginVertical: 5,
-    backgroundColor: "lightblue",
+    backgroundColor: "#00AEC9",
     borderRadius: 8,
   },
   pressedItem: {
