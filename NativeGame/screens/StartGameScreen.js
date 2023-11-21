@@ -3,7 +3,7 @@ import { StyleSheet, TextInput, View, Alert } from "react-native";
 import CustomButton from "../components/CustomButton";
 import { useState } from "react";
 
-export default function StartGameScreen() {
+export default function StartGameScreen({ onSelectedNumber }) {
   const [enteredNumber, setEnteredNumber] = useState("");
 
   function numberInputHandler(enteredText) {
@@ -27,6 +27,7 @@ export default function StartGameScreen() {
       return;
     }
     console.log("Valid number!");
+    onSelectedNumber(chosenNumber);
   }
 
   return (
