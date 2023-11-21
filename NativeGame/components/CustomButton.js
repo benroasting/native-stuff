@@ -1,6 +1,6 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 
-function CustomButton({ children }) {
+function CustomButton({ children, onPress }) {
   function onPressHandler() {
     console.log("Button pressed");
   }
@@ -8,7 +8,7 @@ function CustomButton({ children }) {
   return (
     <View style={styles.outerButtonContainer}>
       <Pressable
-        onPress={onPressHandler}
+        onPress={onPress}
         style={({ pressed }) =>
           pressed
             ? [styles.innerButtonContainer, styles.pressed]
