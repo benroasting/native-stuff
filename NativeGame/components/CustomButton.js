@@ -1,4 +1,5 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
+import Colors from "../constants/colors";
 
 function CustomButton({ children, onPress }) {
   function onPressHandler() {
@@ -25,13 +26,13 @@ export default CustomButton;
 
 const styles = StyleSheet.create({
   outerButtonContainer: {
-    backgroundColor: "#93C572",
+    backgroundColor: Colors.oliveGreen,
     borderRadius: 20,
     margin: 4,
     overflow: "hidden",
   },
   innerButtonContainer: {
-    backgroundColor: "#93C572",
+    backgroundColor: Colors.oliveGreen,
     paddingVertical: 8,
     paddingHorizontal: 16,
   },

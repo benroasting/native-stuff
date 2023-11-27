@@ -1,5 +1,5 @@
 import { StyleSheet, TextInput, View, Alert } from "react-native";
-
+import Colors from "../constants/colors";
 import CustomButton from "../components/CustomButton";
 import { useState } from "react";
 
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     marginTop: 100,
     marginHorizontal: 20,
     borderRadius: 8,
-    backgroundColor: "#AFE1AF",
+    backgroundColor: Colors.softGreen,
     shadowColor: "gray",
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
@@ -74,9 +74,9 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "bold",
     textAlign: "center",
-    borderBottomColor: "#FF7518",
+    borderBottomColor: Colors.redOrange,
     borderBottomWidth: 2,
-    color: "#FF7518",
+    color: Colors.redOrange,
   },
   buttonContainer: {
     flexDirection: "row",
