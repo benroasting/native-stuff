@@ -1,8 +1,8 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Alert } from "react-native";
 import CustomButton from "../components/ui/CustomButton";
 import Title from "../components/ui/Title";
 import NumberContainer from "../components/game/NumberContainer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function generateRandomNumber(min, max, exclude) {
   const randomNumber = Math.floor(Math.random() * (max - min)) + min;
@@ -25,7 +25,20 @@ function GameScreen({ userNumber }) {
   );
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
 
+  useEffect(() => {
+    if (currentGuess === userNumber) {
+    }
+  }, []);
+
   function nextGuessHandler(direction) {
+    if (
+      (direction === "lower" && currentGuess < userNumber) ||
+      (direction === "higher" && currentGuess > userNumber)
+    ) {
+      Alert.alert("Don't lie!", [{ text: "Sorry!", style: "cancel" }]);
+      return;
+    }
+
     if (direction === "lower") {
       // generate new number between currentGuess and userNumber
       maxBoundary = currentGuess;
@@ -33,6 +46,7 @@ function GameScreen({ userNumber }) {
       // generate new number between currentGuess and userNumber
       minBoundary = currentGuess + 1;
     }
+    console.log(minBoundary, maxBoundary);
     const newRandomNumber = generateRandomNumber(
       minBoundary,
       maxBoundary,
@@ -47,7 +61,7 @@ function GameScreen({ userNumber }) {
       <NumberContainer>{currentGuess}</NumberContainer>
       <View>
         <Text style={styles.subtext}>Is the Opponent's Guess</Text>
-        <Text style={styles.subtext.bold}>Higher or Lower</Text>
+        <Text style={styles.subtext}>Higher or Lower</Text>
         <Text style={styles.subtext}>Than Your Number?</Text>
         <CustomButton onPress={nextGuessHandler.bind(this, "lower")}>
           LOWER
@@ -72,10 +86,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: "center",
     paddingVertical: 8,
-    bold: {
-      fontSize: 16,
-      textAlign: "center",
-      fontWeight: "bold",
-    },
   },
 });
