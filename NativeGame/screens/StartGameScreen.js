@@ -1,7 +1,10 @@
 import { StyleSheet, TextInput, View, Alert } from "react-native";
-import Colors from "../constants/colors";
-import CustomButton from "../components/ui/CustomButton";
 import { useState } from "react";
+
+import Colors from "../constants/colors";
+
+import CustomButton from "../components/ui/CustomButton";
+import Title from "../components/ui/Title";
 
 export default function StartGameScreen({ onSelectedNumber }) {
   const [enteredNumber, setEnteredNumber] = useState("");
@@ -31,22 +34,25 @@ export default function StartGameScreen({ onSelectedNumber }) {
   }
 
   return (
-    <View style={styles.container}>
-      <TextInput
-        style={styles.numberInput}
-        maxLength={2}
-        keyboardType="number-pad"
-        autoCapitalize="none"
-        autoCorrect={false}
-        value={enteredNumber}
-        onChangeText={numberInputHandler}
-      />
-      <View style={styles.buttonContainer}>
-        <View style={styles.button}>
-          <CustomButton onPress={confirmInputHandler}>Confirm</CustomButton>
-        </View>
-        <View style={styles.button}>
-          <CustomButton onPress={resetInputHandler}>Reset</CustomButton>
+    <View style={styles.screenContainer}>
+      <Title>Guess My Number</Title>
+      <View style={styles.container}>
+        <TextInput
+          style={styles.numberInput}
+          maxLength={2}
+          keyboardType="number-pad"
+          autoCapitalize="none"
+          autoCorrect={false}
+          value={enteredNumber}
+          onChangeText={numberInputHandler}
+        />
+        <View style={styles.buttonContainer}>
+          <View style={styles.button}>
+            <CustomButton onPress={confirmInputHandler}>Confirm</CustomButton>
+          </View>
+          <View style={styles.button}>
+            <CustomButton onPress={resetInputHandler}>Reset</CustomButton>
+          </View>
         </View>
       </View>
     </View>
@@ -54,9 +60,12 @@ export default function StartGameScreen({ onSelectedNumber }) {
 }
 
 const styles = StyleSheet.create({
+  screenContainer: {
+    flex: 1,
+    marginTop: 100,
+  },
   container: {
     padding: 16,
-    marginTop: 100,
     marginHorizontal: 20,
     borderRadius: 8,
     backgroundColor: Colors.softGreen,
