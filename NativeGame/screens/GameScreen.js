@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Alert } from "react-native";
+import { View, Text, TextInput, StyleSheet, Alert } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 import CustomButton from "../components/ui/CustomButton";
 import Title from "../components/ui/Title";
@@ -60,15 +61,17 @@ function GameScreen({ userNumber, onGameOver }) {
       <Title>Opponent's Guess</Title>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card>
-        <Text style={styles.subtext}>Is the Opponent's Guess</Text>
-        <Text style={styles.subtext}>Higher or Lower</Text>
-        <Text style={styles.subtext}>Than Your Number?</Text>
+        <TextInput
+          style={styles.subtext}
+          editable={false}
+          value={"Is That Your Number?"}
+        />
         <View style={styles.buttonContainer}>
           <CustomButton onPress={nextGuessHandler.bind(this, "lower")}>
-            LOWER
+            <Ionicons name="md-remove" size={24} color="white" />
           </CustomButton>
           <CustomButton onPress={nextGuessHandler.bind(this, "higher")}>
-            HIGHER
+            <Ionicons name="md-add" size={24} color="white" />
           </CustomButton>
         </View>
       </Card>
@@ -87,7 +90,10 @@ const styles = StyleSheet.create({
   subtext: {
     fontSize: 16,
     textAlign: "center",
-    paddingVertical: 2,
+    marginBottom: 12,
+    paddingVertical: 4,
+    borderBottomWidth: 1,
+    borderBottomColor: "black",
   },
   buttonContainer: {
     flexDirection: "row",
