@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
   },
   subtext: {
     fontSize: 16,
+    fontFamily: "nanum-gothic",
     textAlign: "center",
     marginBottom: 12,
     paddingVertical: 4,

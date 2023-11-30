@@ -1,14 +1,36 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { StyleSheet, ImageBackground, SafeAreaView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
 
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
 import GameOver from "./screens/GameOver";
 
+SplashScreen.preventAutoHideAsync();
+
 export default function App() {
   const [userNumber, setUserNumber] = useState();
   const [gameIsOver, setGameIsOver] = useState(true);
+
+  const [fontsLoaded] = useFonts({
+    "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+    "nanum-gothic": require("./assets/fonts/NanumGothic-Regular.ttf"),
+    "nanum-gothic-bold": require("./assets/fonts/NanumGothic-Bold.ttf"),
+    "nanum-gothic-extra-bold": require("./assets/fonts/NanumGothic-ExtraBold.ttf"),
+  });
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   function startGameHandler(selectedNumber) {
     setUserNumber(selectedNumber);
@@ -39,7 +61,9 @@ export default function App() {
         style={styles.rootScreen}
         imageStyle={styles.backgroundImage}
       >
-        <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
+        <SafeAreaView style={styles.rootScreen} onLayout={onLayoutRootView}>
+          {screen}
+        </SafeAreaView>
       </ImageBackground>
     </LinearGradient>
   );

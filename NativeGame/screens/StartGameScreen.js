@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   },
   instructionText: {
     color: Colors.darkGreen,
-    fontWeight: "bold",
+    fontFamily: "nanum-gothic-bold",
     fontSize: 16,
   },
   numberInput: {
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     width: 50,
     marginVertical: 8,
     fontSize: 32,
-    fontWeight: "bold",
+    fontFamily: "nanum-gothic-bold",
     textAlign: "center",
     borderBottomColor: Colors.redOrange,
     borderBottomWidth: 2,
