@@ -58,7 +58,7 @@ function GameScreen({ userNumber, onGameOver }) {
 
   return (
     <View style={styles.screen}>
-      <Title>Opponent's Guess</Title>
+      <Title>OPPONENT'S GUESS</Title>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card>
         <TextInput

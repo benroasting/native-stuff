@@ -7,7 +7,7 @@ function Title({ children }) {
 const styles = StyleSheet.create({
   title: {
     fontSize: 24,
-    fontFamily: "nanum-gothic-extra-bold",
+    fontWeight: "bold",
     textAlign: "center",
     marginBottom: 16,
   },

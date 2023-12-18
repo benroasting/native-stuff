@@ -36,7 +36,7 @@ export default function StartGameScreen({ onSelectedNumber }) {
 
   return (
     <View style={styles.screenContainer}>
-      <Title>Guess My Number</Title>
+      <Title>GUESS MY NUMBER</Title>
       <Card>
         <Text style={styles.instructionText}>ENTER A NUMBER</Text>
         <TextInput
