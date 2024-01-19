@@ -5,6 +5,8 @@ import {
   Alert,
   Text,
   useWindowDimensions,
+  KeyboardAvoidingView,
+  ScrollView,
 } from "react-native";
 import { useState } from "react";
 
@@ -17,7 +19,7 @@ import Card from "../components/ui/Card";
 export default function StartGameScreen({ onSelectedNumber }) {
   const [enteredNumber, setEnteredNumber] = useState("");
 
-  const { width, height } = useWindowDimensions();
+  const { height } = useWindowDimensions();
 
   function numberInputHandler(enteredText) {
     setEnteredNumber(enteredText);
@@ -45,38 +47,47 @@ export default function StartGameScreen({ onSelectedNumber }) {
   const marginTop = height < 380 ? 30 : 100;
 
   return (
-    <View style={[styles.screenContainer, { marginTop: marginTop }]}>
-      <Title>GUESS MY NUMBER</Title>
-      <Card>
-        <Text style={styles.instructionText}>ENTER A NUMBER</Text>
-        <TextInput
-          style={styles.numberInput}
-          maxLength={2}
-          keyboardType="number-pad"
-          autoCapitalize="none"
-          autoCorrect={false}
-          value={enteredNumber}
-          onChangeText={numberInputHandler}
-        />
-        <View style={styles.buttonContainer}>
-          <View style={styles.button}>
-            <CustomButton onPress={confirmInputHandler}>Confirm</CustomButton>
-          </View>
-          <View style={styles.button}>
-            <CustomButton onPress={resetInputHandler}>Reset</CustomButton>
-          </View>
+    <ScrollView style={styles.screen}>
+      <KeyboardAvoidingView style={styles.screen} behavior="position">
+        <View style={[styles.screenContainer, { marginTop: marginTop }]}>
+          <Title>GUESS MY NUMBER</Title>
+          <Card>
+            <Text style={styles.instructionText}>ENTER A NUMBER</Text>
+            <TextInput
+              style={styles.numberInput}
+              maxLength={2}
+              keyboardType="number-pad"
+              autoCapitalize="none"
+              autoCorrect={false}
+              value={enteredNumber}
+              onChangeText={numberInputHandler}
+            />
+            <View style={styles.buttonContainer}>
+              <View style={styles.button}>
+                <CustomButton onPress={confirmInputHandler}>
+                  Confirm
+                </CustomButton>
+              </View>
+              <View style={styles.button}>
+                <CustomButton onPress={resetInputHandler}>Reset</CustomButton>
+              </View>
+            </View>
+          </Card>
         </View>
-      </Card>
-    </View>
+      </KeyboardAvoidingView>
+    </ScrollView>
   );
 }
 
 // const deviceHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
   screenContainer: {
     flex: 1,
-    marginTop: deviceHeight < 400 ? 30 : 100,
+    // marginTop: deviceHeight < 400 ? 30 : 100,
     alignItems: "center",
   },
   instructionText: {

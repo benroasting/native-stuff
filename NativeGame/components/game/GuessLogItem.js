@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   itemText: {
-    itemTextmily: "nanum-gothic-bold",
+    itemTextFamily: "nanum-gothic-bold",
     fontSize: 16,
     color: Colors.darkGreen,
   },
