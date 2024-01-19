@@ -122,7 +122,6 @@ function GameScreen({ userNumber, onGameOver }) {
   return (
     <View style={styles.screen}>
       <Title>OPPONENT'S GUESS</Title>
-      <NumberContainer>{currentGuess}</NumberContainer>
       {content}
       <View style={styles.listContainer}>
         <FlatList
