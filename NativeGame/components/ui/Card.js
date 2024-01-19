@@ -9,7 +9,7 @@ export default Card;
 
 const styles = StyleSheet.create({
   card: {
-    padding: 16,
+    padding: 24,
     marginHorizontal: 20,
     borderRadius: 8,
     backgroundColor: Colors.softGreen,

@@ -5,7 +5,7 @@ function GuessLogItem({ roundNumber, guess }) {
   return (
     <View style={styles.listItem}>
       <Text style={styles.itemText}>#{roundNumber}</Text>
-      <Text style={styles.itemText}>Opponent's Guess: {guess}</Text>
+      <Text style={styles.itemText}> Opponent's Guess: {guess}</Text>
     </View>
   );
 }
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     borderColor: "black",
     borderWidth: 2,
     borderRadius: 15,
-    padding: 16,
+    padding: 24,
     marginVertical: 15,
     backgroundColor: "lightgray",
     flexDirection: "row",

@@ -10,6 +10,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: 16,
+    maxWidth: "80%",
+    width: 300,
   },
 });
 
