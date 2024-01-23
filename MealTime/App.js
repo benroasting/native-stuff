@@ -3,7 +3,12 @@ import { StyleSheet } from "react-native";
 import MealCategoryScreen from "./screens/MealCategoryScreen";
 
 export default function App() {
-  return <MealCategoryScreen />;
+  return (
+    <>
+      <StatusBar style="light" />
+      <MealCategoryScreen />
+    </>
+  );
 }
 
 const styles = StyleSheet.create({
