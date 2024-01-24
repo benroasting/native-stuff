@@ -16,6 +16,16 @@ export default function App() {
           <ScreenStack.Screen
             name="MealCategories"
             component={MealCategoryScreen}
+            options={{
+              title: "Meal Categories",
+              headerStyle: {
+                backgroundColor: "gray",
+              },
+              headerTintColor: "white",
+              headerTitleStyle: {
+                fontWeight: "bold",
+              },
+            }}
           />
           <ScreenStack.Screen
             name="MealsOverview"
